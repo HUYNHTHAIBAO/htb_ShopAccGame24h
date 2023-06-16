@@ -4,7 +4,7 @@
 <!-- Mirrored from demos.adminmart.com/premium/bootstrap/modernize-bootstrap/package/html/main/index6.html by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 15 Jun 2023 02:40:00 GMT -->
 <head>
     <!--  Title -->
-    <title>Mordenize</title>
+    <title>@yield('title')</title>
     <!--  Required Meta Tag -->
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -16,6 +16,8 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <!--  Favicon -->
     <link rel="shortcut icon" type="image/png" href="{{asset('backend')}}/assets/images/logos/favicon.png" />
+    <!-- Owl Carousel  -->
+    <link rel="stylesheet" href="{{asset('backend')}}/assets/libs/owl.carousel/dist/assets/owl.carousel.min.css">
     <!-- Core Css -->
     <link  id="themeColors"  rel="stylesheet" href="{{asset('backend')}}/assets/css/style.min.css" />
 </head>
@@ -49,80 +51,57 @@
                     <!-- ============================= -->
                     <!-- Home -->
                     <!-- ============================= -->
-                    <li class="nav-small-cap">
-                        <i class="ti ti-dots nav-small-cap-icon fs-4"></i>
-                        <span class="hide-menu">Home</span>
-                    </li>
-                    <!-- =================== -->
-                    <!-- Dashboard -->
-                    <!-- =================== -->
+{{--                    <li class="nav-small-cap">--}}
+{{--                        <i class="ti ti-dots nav-small-cap-icon fs-4"></i>--}}
+{{--                        <span class="hide-menu"></span>--}}
+{{--                    </li>--}}
 
-                    <li class="sidebar-item">
-                        <a class="sidebar-link" href="index6.html" aria-expanded="false">
-                  <span>
-                    <i class="ti ti-playlist"></i>
-                  </span>
-                            <span class="hide-menu">Music</span>
-                        </a>
-                    </li>
                     <!-- ============================= -->
                     <!-- Apps -->
                     <!-- ============================= -->
 
                     <li class="sidebar-item">
-                        <a class="sidebar-link" href="app-email.html" aria-expanded="false">
+                        <a class="sidebar-link" href="{{route('backend.home.index')}}" aria-expanded="false">
                   <span>
-                    <i class="ti ti-mail"></i>
+                  <i class="ti ti-home"></i>
                   </span>
-                            <span class="hide-menu">Email</span>
+                            <span class="hide-menu">Trang chủ</span>
                         </a>
                     </li>
+
+
                     <li class="sidebar-item">
-                        <a class="sidebar-link" href="app-notes.html" aria-expanded="false">
-                  <span>
-                    <i class="ti ti-notes"></i>
+                        <a class="sidebar-link has-arrow" href="#" aria-expanded="false">
+                  <span class="d-flex">
+                    <i class="ti ti-category"></i>
                   </span>
-                            <span class="hide-menu">Notes</span>
+                            <span class="hide-menu">Danh mục game</span>
                         </a>
-                    </li>
-                    <li class="sidebar-item">
-                        <a class="sidebar-link" href="app-contact.html" aria-expanded="false">
-                  <span>
-                    <i class="ti ti-phone"></i>
-                  </span>
-                            <span class="hide-menu">Contact Table</span>
-                        </a>
-                    </li>
-                    <li class="sidebar-item">
-                        <a class="sidebar-link" href="app-contact2.html" aria-expanded="false">
-                  <span>
-                    <i class="ti ti-list-details"></i>
-                  </span>
-                            <span class="hide-menu">Contact List</span>
-                        </a>
-                    </li>
-                    <li class="sidebar-item">
-                        <a class="sidebar-link" href="app-invoice.html" aria-expanded="false">
-                  <span>
-                    <i class="ti ti-file-text"></i>
-                  </span>
-                            <span class="hide-menu">Invoice</span>
-                        </a>
-                    </li>
-                    <li class="sidebar-item">
-                        <a class="sidebar-link" href="page-user-profile.html" aria-expanded="false">
-                  <span>
-                    <i class="ti ti-user-circle"></i>
-                  </span>
-                            <span class="hide-menu">User Profile</span>
-                        </a>
+                        <ul aria-expanded="false" class="collapse first-level">
+                            <li class="sidebar-item">
+                                <a href="{{route('backend.category.index')}}" class="sidebar-link">
+                                    <div class="round-16 d-flex align-items-center justify-content-center">
+                                        <i class="ti ti-circle"></i>
+                                    </div>
+                                    <span class="hide-menu">Danh sách</span>
+                                </a>
+                            </li>
+                            <li class="sidebar-item">
+                                <a href="{{route('backend.category.create')}}" class="sidebar-link">
+                                    <div class="round-16 d-flex align-items-center justify-content-center">
+                                        <i class="ti ti-circle"></i>
+                                    </div>
+                                    <span class="hide-menu">Thêm mới</span>
+                                </a>
+                            </li>
+                        </ul>
                     </li>
                     <li class="sidebar-item">
                         <a class="sidebar-link has-arrow" href="#" aria-expanded="false">
                   <span class="d-flex">
-                    <i class="ti ti-chart-donut-3"></i>
+                  <i class="ti ti-slideshow"></i>
                   </span>
-                            <span class="hide-menu">Blog</span>
+                            <span class="hide-menu">Slider</span>
                         </a>
                         <ul aria-expanded="false" class="collapse first-level">
                             <li class="sidebar-item">
@@ -130,7 +109,7 @@
                                     <div class="round-16 d-flex align-items-center justify-content-center">
                                         <i class="ti ti-circle"></i>
                                     </div>
-                                    <span class="hide-menu">Posts</span>
+                                    <span class="hide-menu">Danh sách</span>
                                 </a>
                             </li>
                             <li class="sidebar-item">
@@ -138,7 +117,59 @@
                                     <div class="round-16 d-flex align-items-center justify-content-center">
                                         <i class="ti ti-circle"></i>
                                     </div>
-                                    <span class="hide-menu">Details</span>
+                                    <span class="hide-menu">Thêm mới</span>
+                                </a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li class="sidebar-item">
+                        <a class="sidebar-link has-arrow" href="#" aria-expanded="false">
+                  <span class="d-flex">
+                <i class="ti ti-file-pencil"></i>
+                  </span>
+                            <span class="hide-menu">Bài viết</span>
+                        </a>
+                        <ul aria-expanded="false" class="collapse first-level">
+                            <li class="sidebar-item">
+                                <a href="blog-posts.html" class="sidebar-link">
+                                    <div class="round-16 d-flex align-items-center justify-content-center">
+                                        <i class="ti ti-circle"></i>
+                                    </div>
+                                    <span class="hide-menu">Danh sách</span>
+                                </a>
+                            </li>
+                            <li class="sidebar-item">
+                                <a href="blog-detail.html" class="sidebar-link">
+                                    <div class="round-16 d-flex align-items-center justify-content-center">
+                                        <i class="ti ti-circle"></i>
+                                    </div>
+                                    <span class="hide-menu">Thêm mới</span>
+                                </a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li class="sidebar-item">
+                        <a class="sidebar-link has-arrow" href="#" aria-expanded="false">
+                  <span class="d-flex">
+                    <i class="ti ti-brand-youtube-kids"></i>
+                  </span>
+                            <span class="hide-menu">Video</span>
+                        </a>
+                        <ul aria-expanded="false" class="collapse first-level">
+                            <li class="sidebar-item">
+                                <a href="blog-posts.html" class="sidebar-link">
+                                    <div class="round-16 d-flex align-items-center justify-content-center">
+                                        <i class="ti ti-circle"></i>
+                                    </div>
+                                    <span class="hide-menu">Danh sách</span>
+                                </a>
+                            </li>
+                            <li class="sidebar-item">
+                                <a href="blog-detail.html" class="sidebar-link">
+                                    <div class="round-16 d-flex align-items-center justify-content-center">
+                                        <i class="ti ti-circle"></i>
+                                    </div>
+                                    <span class="hide-menu">Thêm mới</span>
                                 </a>
                             </li>
                         </ul>
@@ -150,7 +181,7 @@
             <div class="fixed-profile p-3 bg-light-secondary rounded sidebar-ad mt-3">
                 <div class="hstack gap-3">
                     <div class="john-img">
-                        <img src="../../dist/images/profile/user-1.jpg" class="rounded-circle" width="40" height="40" alt="">
+                        <img src="{{asset('backend')}}/assets/images/profile/user-1.jpg" class="rounded-circle" width="40" height="40" alt="">
                     </div>
                     <div class="john-title">
                         <h6 class="mb-0 fs-4 fw-semibold">Mathew</h6>
@@ -357,7 +388,7 @@
                                     <div class="message-body" data-simplebar>
                                         <a href="javascript:void(0)" class="py-6 px-7 d-flex align-items-center dropdown-item">
                           <span class="me-3">
-                            <img src="../../dist/images/profile/user-1.jpg" alt="user" class="rounded-circle" width="48" height="48" />
+                            <img src="{{asset('backend')}}/assets/images/profile/user-1.jpg" alt="user" class="rounded-circle" width="48" height="48" />
                           </span>
                                             <div class="w-75 d-inline-block v-middle">
                                                 <h6 class="mb-1 fw-semibold">Roman Joined the Team!</h6>
@@ -366,7 +397,7 @@
                                         </a>
                                         <a href="javascript:void(0)" class="py-6 px-7 d-flex align-items-center dropdown-item">
                           <span class="me-3">
-                            <img src="../../dist/images/profile/user-2.jpg" alt="user" class="rounded-circle" width="48" height="48" />
+                            <img src="{{asset('backend')}}/assets/images/profile/user-2.jpg" alt="user" class="rounded-circle" width="48" height="48" />
                           </span>
                                             <div class="w-75 d-inline-block v-middle">
                                                 <h6 class="mb-1 fw-semibold">New message</h6>
@@ -375,7 +406,7 @@
                                         </a>
                                         <a href="javascript:void(0)" class="py-6 px-7 d-flex align-items-center dropdown-item">
                           <span class="me-3">
-                            <img src="../../dist/images/profile/user-3.jpg" alt="user" class="rounded-circle" width="48" height="48" />
+                            <img src="{{asset('backend')}}/assets/images/profile/user-3.jpg" alt="user" class="rounded-circle" width="48" height="48" />
                           </span>
                                             <div class="w-75 d-inline-block v-middle">
                                                 <h6 class="mb-1 fw-semibold">Bianca sent payment</h6>
@@ -384,7 +415,7 @@
                                         </a>
                                         <a href="javascript:void(0)" class="py-6 px-7 d-flex align-items-center dropdown-item">
                           <span class="me-3">
-                            <img src="../../dist/images/profile/user-4.jpg" alt="user" class="rounded-circle" width="48" height="48" />
+                            <img src="{{asset('backend')}}/assets/images/profile/user-4.jpg" alt="user" class="rounded-circle" width="48" height="48" />
                           </span>
                                             <div class="w-75 d-inline-block v-middle">
                                                 <h6 class="mb-1 fw-semibold">Jolly completed tasks</h6>
@@ -393,7 +424,7 @@
                                         </a>
                                         <a href="javascript:void(0)" class="py-6 px-7 d-flex align-items-center dropdown-item">
                           <span class="me-3">
-                            <img src="../../dist/images/profile/user-5.jpg" alt="user" class="rounded-circle" width="48" height="48" />
+                            <img src="{{asset('backend')}}/assets/images/profile/user-5.jpg" alt="user" class="rounded-circle" width="48" height="48" />
                           </span>
                                             <div class="w-75 d-inline-block v-middle">
                                                 <h6 class="mb-1 fw-semibold">John received payment</h6>
@@ -402,7 +433,7 @@
                                         </a>
                                         <a href="javascript:void(0)" class="py-6 px-7 d-flex align-items-center dropdown-item">
                           <span class="me-3">
-                            <img src="../../dist/images/profile/user-1.jpg" alt="user" class="rounded-circle" width="48" height="48" />
+                            <img src="{{asset('backend')}}/assets/images/profile/user-1.jpg" alt="user" class="rounded-circle" width="48" height="48" />
                           </span>
                                             <div class="w-75 d-inline-block v-middle">
                                                 <h6 class="mb-1 fw-semibold">Roman Joined the Team!</h6>
@@ -419,23 +450,20 @@
                                 <a class="nav-link pe-0" href="javascript:void(0)" id="drop1" data-bs-toggle="dropdown" aria-expanded="false">
                                     <div class="d-flex align-items-center">
                                         <div class="user-profile-img">
-                                            <img src="../../dist/images/profile/user-1.jpg" class="rounded-circle" width="35" height="35" alt="" />
+                                            <img src="{{asset('backend')}}/assets/images/profile/user-1.jpg" class="rounded-circle" width="35" height="35" alt="" />
                                         </div>
                                     </div>
                                 </a>
                                 <div class="dropdown-menu content-dd dropdown-menu-end dropdown-menu-animate-up" aria-labelledby="drop1">
                                     <div class="profile-dropdown position-relative" data-simplebar>
                                         <div class="py-3 px-7 pb-0">
-                                            <h5 class="mb-0 fs-5 fw-semibold">User Profile</h5>
+                                            <h5 class="mb-0 fs-5 fw-semibold">Tài khoản</h5>
                                         </div>
                                         <div class="d-flex align-items-center py-9 mx-7 border-bottom">
-                                            <img src="../../dist/images/profile/user-1.jpg" class="rounded-circle" width="80" height="80" alt="" />
+                                            <img src="{{asset('backend')}}/assets/images/profile/user-1.jpg" class="rounded-circle" width="80" height="80" alt="" />
                                             <div class="ms-3">
-                                                <h5 class="mb-1 fs-3">Mathew Anderson</h5>
-                                                <span class="mb-1 d-block text-dark">Designer</span>
-                                                <p class="mb-0 d-flex text-dark align-items-center gap-2">
-                                                    <i class="ti ti-mail fs-4"></i> info@modernize.com
-                                                </p>
+                                                <h5 class="mb-1 fs-3">Xin chào !</h5>
+                                                <span class="mb-1 d-block text-dark">{{Auth()->guard('backend')->user()->name}}</span>
                                             </div>
                                         </div>
                                         <div class="message-body">
@@ -444,44 +472,13 @@
                               <img src="https://demos.adminmart.com/premium/bootstrap/modernize-bootstrap/package/dist/images/svgs/icon-account.svg" alt="" width="24" height="24">
                             </span>
                                                 <div class="w-75 d-inline-block v-middle ps-3">
-                                                    <h6 class="mb-1 bg-hover-primary fw-semibold"> My Profile </h6>
-                                                    <span class="d-block text-dark">Account Settings</span>
-                                                </div>
-                                            </a>
-                                            <a href="app-email.html" class="py-8 px-7 d-flex align-items-center">
-                            <span class="d-flex align-items-center justify-content-center bg-light rounded-1 p-6">
-                              <img src="https://demos.adminmart.com/premium/bootstrap/modernize-bootstrap/package/dist/images/svgs/icon-inbox.svg" alt="" width="24" height="24">
-                            </span>
-                                                <div class="w-75 d-inline-block v-middle ps-3">
-                                                    <h6 class="mb-1 bg-hover-primary fw-semibold">My Inbox</h6>
-                                                    <span class="d-block text-dark">Messages & Emails</span>
-                                                </div>
-                                            </a>
-                                            <a href="app-notes.html" class="py-8 px-7 d-flex align-items-center">
-                            <span class="d-flex align-items-center justify-content-center bg-light rounded-1 p-6">
-                              <img src="https://demos.adminmart.com/premium/bootstrap/modernize-bootstrap/package/dist/images/svgs/icon-tasks.svg" alt="" width="24" height="24">
-                            </span>
-                                                <div class="w-75 d-inline-block v-middle ps-3">
-                                                    <h6 class="mb-1 bg-hover-primary fw-semibold">My Task</h6>
-                                                    <span class="d-block text-dark">To-do and Daily Tasks</span>
+                                                    <h6 class="mb-1 bg-hover-primary fw-semibold"> Tài khoản của tôi </h6>
+                                                    <span class="d-block text-dark">Cài đặt tài khoản</span>
                                                 </div>
                                             </a>
                                         </div>
                                         <div class="d-grid py-4 px-7 pt-8">
-                                            <div class="upgrade-plan bg-light-primary position-relative overflow-hidden rounded-4 p-4 mb-9">
-                                                <div class="row">
-                                                    <div class="col-6">
-                                                        <h5 class="fs-4 mb-3 w-50 fw-semibold text-dark">Unlimited Access</h5>
-                                                        <button class="btn btn-primary text-white">Upgrade</button>
-                                                    </div>
-                                                    <div class="col-6">
-                                                        <div class="m-n4">
-                                                            <img src="../../dist/images/backgrounds/unlimited-bg.png" alt="" class="w-100">
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <a href="authentication-login.html" class="btn btn-outline-primary">Log Out</a>
+                                            <a href="{{route('backend.account.logout')}}" class="btn btn-outline-primary">Đăng xuất</a>
                                         </div>
                                     </div>
                                 </div>
@@ -830,27 +827,27 @@
 </button>
 <div class="offcanvas offcanvas-end customizer" tabindex="-1" id="offcanvasExample" aria-labelledby="offcanvasExampleLabel" data-simplebar="">
     <div class="d-flex align-items-center justify-content-between p-3 border-bottom">
-        <h4 class="offcanvas-title fw-semibold" id="offcanvasExampleLabel">Settings</h4>
+        <h4 class="offcanvas-title fw-semibold" id="offcanvasExampleLabel">Tùy chỉnh giao diện</h4>
         <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
     </div>
     <div class="offcanvas-body p-4">
         <div class="theme-option pb-4">
-            <h6 class="fw-semibold fs-4 mb-1">Theme Option</h6>
+            <h6 class="fw-semibold fs-4 mb-1">Giao diện</h6>
             <div class="d-flex align-items-center gap-3 my-3">
-                <a href="javascript:void(0)"  onclick="toggleTheme('../../dist/css/style.min.css')"  class="rounded-2 p-9 customizer-box hover-img d-flex align-items-center gap-2 light-theme text-dark">
+                <a href="javascript:void(0)"  onclick="toggleTheme('{{asset('backend')}}/assets/css/style.min.css')"  class="rounded-2 p-9 customizer-box hover-img d-flex align-items-center gap-2 light-theme text-dark">
                     <i class="ti ti-brightness-up fs-7 text-primary"></i>
-                    <span class="text-dark">Light</span>
+                    <span class="text-dark">Sáng</span>
                 </a>
-                <a href="javascript:void(0)" onclick="toggleTheme('../../dist/css/style-dark.min.css')" class="rounded-2 p-9 customizer-box hover-img d-flex align-items-center gap-2 dark-theme text-dark">
+                <a href="javascript:void(0)" onclick="toggleTheme('{{asset('backend')}}/assets/css/style-dark.min.css')" class="rounded-2 p-9 customizer-box hover-img d-flex align-items-center gap-2 dark-theme text-dark">
                     <i class="ti ti-moon fs-7 "></i>
-                    <span class="text-dark">Dark</span>
+                    <span class="text-dark">Tối</span>
                 </a>
             </div>
         </div>
         <div class="theme-direction pb-4">
-            <h6 class="fw-semibold fs-4 mb-1">Theme Direction</h6>
+            <h6 class="fw-semibold fs-4 mb-1">Hướng giao diện</h6>
             <div class="d-flex align-items-center gap-3 my-3">
-                <a href="index.html" class="rounded-2 p-9 customizer-box hover-img d-flex align-items-center gap-2">
+                <a href="" class="rounded-2 p-9 customizer-box hover-img d-flex align-items-center gap-2">
                     <i class="ti ti-text-direction-ltr fs-6 text-primary"></i>
                     <span class="text-dark">LTR</span>
                 </a>
@@ -861,79 +858,79 @@
             </div>
         </div>
         <div class="theme-colors pb-4">
-            <h6 class="fw-semibold fs-4 mb-1">Theme Colors</h6>
+            <h6 class="fw-semibold fs-4 mb-1">Màu sắc</h6>
             <div class="d-flex align-items-center gap-3 my-3">
                 <ul class="list-unstyled mb-0 d-flex gap-3 flex-wrap change-colors">
                     <li class="rounded-2 p-9 customizer-box hover-img d-flex align-items-center justify-content-center">
-                        <a href="javascript:void(0)" class="rounded-circle position-relative d-block customizer-bgcolor skin1-bluetheme-primary active-theme " onclick="toggleTheme('../../dist/css/style.min.css')"  data-color="blue_theme" data-bs-toggle="tooltip" data-bs-placement="top" data-bs-title="BLUE_THEME"><i class="ti ti-check text-white d-flex align-items-center justify-content-center fs-5"></i></a>
+                        <a href="javascript:void(0)" class="rounded-circle position-relative d-block customizer-bgcolor skin1-bluetheme-primary active-theme " onclick="toggleTheme('{{asset('backend')}}/assets/css/style.min.css')"  data-color="blue_theme" data-bs-toggle="tooltip" data-bs-placement="top" data-bs-title="BLUE_THEME"><i class="ti ti-check text-white d-flex align-items-center justify-content-center fs-5"></i></a>
                     </li>
                     <li class="rounded-2 p-9 customizer-box hover-img d-flex align-items-center justify-content-center">
-                        <a href="javascript:void(0)"  class="rounded-circle position-relative d-block customizer-bgcolor skin2-aquatheme-primary " onclick="toggleTheme('../../dist/css/style-aqua.min.css')"  data-color="aqua_theme" data-bs-toggle="tooltip" data-bs-placement="top" data-bs-title="AQUA_THEME"><i class="ti ti-check  text-white d-flex align-items-center justify-content-center fs-5"></i></a>
+                        <a href="javascript:void(0)"  class="rounded-circle position-relative d-block customizer-bgcolor skin2-aquatheme-primary " onclick="toggleTheme('{{asset('backend')}}/assets/css/style-aqua.min.css')"  data-color="aqua_theme" data-bs-toggle="tooltip" data-bs-placement="top" data-bs-title="AQUA_THEME"><i class="ti ti-check  text-white d-flex align-items-center justify-content-center fs-5"></i></a>
                     </li>
                     <li class="rounded-2 p-9 customizer-box hover-img d-flex align-items-center justify-content-center">
-                        <a href="javascript:void(0)" class="rounded-circle position-relative d-block customizer-bgcolor skin3-purpletheme-primary" onclick="toggleTheme('../../dist/css/style-purple.min.css')"  data-color="purple_theme" data-bs-toggle="tooltip" data-bs-placement="top" data-bs-title="PURPLE_THEME"><i class="ti ti-check  text-white d-flex align-items-center justify-content-center fs-5"></i></a>
+                        <a href="javascript:void(0)" class="rounded-circle position-relative d-block customizer-bgcolor skin3-purpletheme-primary" onclick="toggleTheme('{{asset('backend')}}/assets/css/style-purple.min.css')"  data-color="purple_theme" data-bs-toggle="tooltip" data-bs-placement="top" data-bs-title="PURPLE_THEME"><i class="ti ti-check  text-white d-flex align-items-center justify-content-center fs-5"></i></a>
                     </li>
                     <li class="rounded-2 p-9 customizer-box hover-img d-flex align-items-center justify-content-center">
-                        <a href="javascript:void(0)" class="rounded-circle position-relative d-block customizer-bgcolor skin4-greentheme-primary" onclick="toggleTheme('../../dist/css/style-green.min.css')"  data-bs-toggle="tooltip" data-bs-placement="top" data-bs-title="GREEN_THEME"><i class="ti ti-check  text-white d-flex align-items-center justify-content-center fs-5"></i></a>
+                        <a href="javascript:void(0)" class="rounded-circle position-relative d-block customizer-bgcolor skin4-greentheme-primary" onclick="toggleTheme('{{asset('backend')}}/assets/css/style-green.min.css')"  data-bs-toggle="tooltip" data-bs-placement="top" data-bs-title="GREEN_THEME"><i class="ti ti-check  text-white d-flex align-items-center justify-content-center fs-5"></i></a>
                     </li>
                     <li class="rounded-2 p-9 customizer-box hover-img d-flex align-items-center justify-content-center">
-                        <a href="javascript:void(0)" class="rounded-circle position-relative d-block customizer-bgcolor skin5-cyantheme-primary" onclick="toggleTheme('../../dist/css/style-cyan.min.css')"  data-bs-toggle="tooltip" data-bs-placement="top" data-bs-title="CYAN_THEME"><i class="ti ti-check  text-white d-flex align-items-center justify-content-center fs-5"></i></a>
+                        <a href="javascript:void(0)" class="rounded-circle position-relative d-block customizer-bgcolor skin5-cyantheme-primary" onclick="toggleTheme('{{asset('backend')}}/assets/css/style-cyan.min.css')"  data-bs-toggle="tooltip" data-bs-placement="top" data-bs-title="CYAN_THEME"><i class="ti ti-check  text-white d-flex align-items-center justify-content-center fs-5"></i></a>
                     </li>
                     <li class="rounded-2 p-9 customizer-box hover-img d-flex align-items-center justify-content-center">
-                        <a href="javascript:void(0)" class="rounded-circle position-relative d-block customizer-bgcolor skin6-orangetheme-primary" onclick="toggleTheme('../../dist/css/style-orange.min.css')"  data-bs-toggle="tooltip" data-bs-placement="top" data-bs-title="ORANGE_THEME"><i class="ti ti-check  text-white d-flex align-items-center justify-content-center fs-5"></i></a>
+                        <a href="javascript:void(0)" class="rounded-circle position-relative d-block customizer-bgcolor skin6-orangetheme-primary" onclick="toggleTheme('{{asset('backend')}}/assets/css/style-orange.min.css')"  data-bs-toggle="tooltip" data-bs-placement="top" data-bs-title="ORANGE_THEME"><i class="ti ti-check  text-white d-flex align-items-center justify-content-center fs-5"></i></a>
                     </li>
                 </ul>
             </div>
         </div>
         <div class="layout-type pb-4">
-            <h6 class="fw-semibold fs-4 mb-1">Layout Type</h6>
+            <h6 class="fw-semibold fs-4 mb-1">Loại bố cục</h6>
             <div class="d-flex align-items-center gap-3 my-3">
                 <a href="index.html" class="rounded-2 p-9 customizer-box hover-img d-flex align-items-center gap-2">
                     <i class="ti ti-layout-sidebar fs-6 text-primary"></i>
-                    <span class="text-dark">Vertical</span>
+                    <span class="text-dark">Dọc</span>
                 </a>
                 <a href="https://demos.adminmart.com/premium/bootstrap/modernize-bootstrap/package/html/horizontal/index.html" class="rounded-2 p-9 customizer-box hover-img d-flex align-items-center gap-2">
                     <i class="ti ti-layout-navbar fs-6 text-dark"></i>
-                    <span class="text-dark">Horizontal</span>
+                    <span class="text-dark">Ngang</span>
                 </a>
             </div>
         </div>
         <div class="container-option pb-4">
-            <h6 class="fw-semibold fs-4 mb-1">Container Option</h6>
+            <h6 class="fw-semibold fs-4 mb-1">Tùy chỉnh bố cục màn hình</h6>
             <div class="d-flex align-items-center gap-3 my-3">
                 <a href="javascript:void(0)" class="rounded-2 p-9 customizer-box hover-img d-flex align-items-center gap-2 boxed-width text-dark">
                     <i class="ti ti-layout-distribute-vertical fs-7 text-primary"></i>
-                    <span class="text-dark">Boxed</span>
+                    <span class="text-dark">Nhỏ</span>
                 </a>
                 <a href="javascript:void(0)" class="rounded-2 p-9 customizer-box hover-img d-flex align-items-center gap-2 full-width text-dark">
                     <i class="ti ti-layout-distribute-horizontal fs-7"></i>
-                    <span class="text-dark">Full</span>
+                    <span class="text-dark">Lớn</span>
                 </a>
             </div>
         </div>
         <div class="sidebar-type pb-4">
-            <h6 class="fw-semibold fs-4 mb-1">Sidebar Type</h6>
+            <h6 class="fw-semibold fs-4 mb-1">Tùy chỉnh menu bên trái</h6>
             <div class="d-flex align-items-center gap-3 my-3">
                 <a  href="javascript:void(0)" class="rounded-2 p-9 customizer-box hover-img d-flex align-items-center gap-2 fullsidebar">
                     <i class="ti ti-layout-sidebar-right fs-7"></i>
-                    <span class="text-dark">Full</span>
+                    <span class="text-dark">Mở ra</span>
                 </a>
                 <a  href="javascript:void(0)" class="rounded-2 p-9 customizer-box hover-img d-flex align-items-center text-dark sidebartoggler gap-2">
                     <i class="ti ti-layout-sidebar fs-7"></i>
-                    <span class="text-dark">Collapse</span>
+                    <span class="text-dark">Co lại</span>
                 </a>
             </div>
         </div>
         <div class="card-with pb-4">
-            <h6 class="fw-semibold fs-4 mb-1">Card With</h6>
+            <h6 class="fw-semibold fs-4 mb-1">Tùy chỉnh bố cục</h6>
             <div class="d-flex align-items-center gap-3 my-3">
                 <a href="javascript:void(0)" class="rounded-2 p-9 customizer-box hover-img d-flex align-items-center gap-2 text-dark cardborder">
                     <i class="ti ti-border-outer fs-7"></i>
-                    <span class="text-dark">Border</span>
+                    <span class="text-dark">Viền</span>
                 </a>
                 <a href="javascript:void(0)" class="rounded-2 p-9 customizer-box hover-img d-flex align-items-center gap-2 cardshadow">
                     <i class="ti ti-border-none fs-7"></i>
-                    <span class="text-dark">Shadow</span>
+                    <span class="text-dark">Bóng mờ</span>
                 </a>
             </div>
         </div>
@@ -951,10 +948,50 @@
 <script src="{{asset('backend')}}/assets/js/sidebarmenu.js"></script>
 <script src="{{asset('backend')}}/assets/js/custom.js"></script>
 <!-- current page js files -->
+{{--<script src="{{asset('backend')}}/assets/libs/apexcharts/dist/apexcharts.min.js"></script>--}}
+{{--<script src="{{asset('backend')}}/assets/js/jplayer/jplayer.js"></script>--}}
+{{--<script src="{{asset('backend')}}/assets/libs/jplayer/dist/jplayer/jquery.jplayer.min.js"></script>--}}
+{{--<script src="{{asset('backend')}}/assets/libs/jplayer/dist/add-on/jplayer.playlist.min.js"></script>--}}
+
+{{--//--}}
+<!--  current page js files -->
+<script src="{{asset('backend')}}/assets/libs/owl.carousel/dist/owl.carousel.min.js"></script>
 <script src="{{asset('backend')}}/assets/libs/apexcharts/dist/apexcharts.min.js"></script>
-<script src="{{asset('backend')}}/assets/js/jplayer/jplayer.js"></script>
-<script src="{{asset('backend')}}/assets/libs/jplayer/dist/jplayer/jquery.jplayer.min.js"></script>
-<script src="{{asset('backend')}}/assets/libs/jplayer/dist/add-on/jplayer.playlist.min.js"></script>
+<script src="{{asset('backend')}}/assets/js/dashboard.js"></script>
+{{--// slug--}}
+<script>
+    function ChangeToSlug()
+    {
+        var slug;
+
+        //Lấy text từ thẻ input title
+        slug = document.getElementById("slug").value;
+        slug = slug.toLowerCase();
+        //Đổi ký tự có dấu thành không dấu
+        slug = slug.replace(/á|à|ả|ạ|ã|ă|ắ|ằ|ẳ|ẵ|ặ|â|ấ|ầ|ẩ|ẫ|ậ/gi, 'a');
+        slug = slug.replace(/é|è|ẻ|ẽ|ẹ|ê|ế|ề|ể|ễ|ệ/gi, 'e');
+        slug = slug.replace(/i|í|ì|ỉ|ĩ|ị/gi, 'i');
+        slug = slug.replace(/ó|ò|ỏ|õ|ọ|ô|ố|ồ|ổ|ỗ|ộ|ơ|ớ|ờ|ở|ỡ|ợ/gi, 'o');
+        slug = slug.replace(/ú|ù|ủ|ũ|ụ|ư|ứ|ừ|ử|ữ|ự/gi, 'u');
+        slug = slug.replace(/ý|ỳ|ỷ|ỹ|ỵ/gi, 'y');
+        slug = slug.replace(/đ/gi, 'd');
+        //Xóa các ký tự đặt biệt
+        slug = slug.replace(/\`|\~|\!|\@|\#|\||\$|\%|\^|\&|\*|\(|\)|\+|\=|\,|\.|\/|\?|\>|\<|\'|\"|\:|\;|_/gi, '');
+        //Đổi khoảng trắng thành ký tự gạch ngang
+        slug = slug.replace(/ /gi, "-");
+        //Đổi nhiều ký tự gạch ngang liên tiếp thành 1 ký tự gạch ngang
+        //Phòng trường hợp người nhập vào quá nhiều ký tự trắng
+        slug = slug.replace(/\-\-\-\-\-/gi, '-');
+        slug = slug.replace(/\-\-\-\-/gi, '-');
+        slug = slug.replace(/\-\-\-/gi, '-');
+        slug = slug.replace(/\-\-/gi, '-');
+        //Xóa các ký tự gạch ngang ở đầu và cuối
+        slug = '@' + slug + '@';
+        slug = slug.replace(/\@\-|\-\@|\@/gi, '');
+        //In slug ra textbox có id “slug”
+        document.getElementById('convert_slug').value = slug;
+    }
+</script>
 </body>
 
 <!-- Mirrored from demos.adminmart.com/premium/bootstrap/modernize-bootstrap/package/html/main/index6.html by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 15 Jun 2023 02:40:04 GMT -->
